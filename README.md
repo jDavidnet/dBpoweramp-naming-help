@@ -30,6 +30,8 @@ Here is the CD Ripper Default Naming script
 |	TRIM		|	trims spaces from begining or end of string	(chars:<code> </code> )			|
 |	DEL			|	removes a portion of a string; opposite of **<code>GRAB</code>**; if **<code>to</code>** is omitted, then string is removed after **<code>from</code>**	|
 |	SETLEN		|	gaurentees a string length, either pads or clips the string		|
+|	WORD		|	trims a string to **<code>wordcount</code>** limit.  (ie. <code>[WORD]A Quick Brown Fox,2[]</code> returns the string 'A Quick')	|
+|	SPLIT		|	splits a string by **<code>string</code>**(a character, or sub-string) and returns a sub-string at **<code>position</code>**. to splity by ","(comma) enter no **<code>string</code>**.
 
 |	Name		|	Description														|
 |	---			|	--- 															|
