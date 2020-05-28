@@ -15,7 +15,7 @@ Here is the CD Ripper Default Naming script
 [IFVALUE]album artist,[album artist],[IFCOMP]Various Artists[][IF!COMP][artist][][]\[album]\[track] [artist] - [title]
 ```
 ## Function Summary
-#### Compilation, Anthology, and Soundtrack Functions
+### Compilation, Anthology, and Soundtrack Functions
 For sound files that are properly tagged with the *Compilation Tag,* it's possible to change how file title or path is generated.  Some CD ripping and sound file production methods leave this tag off or, label it incorrectly.
 
 |	Name		|	Description														|
@@ -23,7 +23,7 @@ For sound files that are properly tagged with the *Compilation Tag,* it's possib
 |	IFCOMP		|	included if "Compilation tag" is set							|
 |	IF!COMP		|	included if "Compilation tag" is not set						|
 
-#### Multi Disc Functions
+### Multi Disc Functions
 Multidisc sets identified can be simplified with these boolean control functions.  Similar functionality can be achived with the Logical Functions in the language.
 
 |	Name		|	Description														|
@@ -31,7 +31,7 @@ Multidisc sets identified can be simplified with these boolean control functions
 |	IFMULTI		|	included if part of a multi CD / disc number is not null, > 1	|
 |	IF!MULTI	|	included if not part of a multi CD / disc number is null || <=1	|
 
-#### String Manipulation Functions
+### String Manipulation Functions
 Manipulating Strings can be part of a final step in currating your file and path names.  Within dBpoweramp there are other methods to manipulate strings before processing them here.
 
 |	Name		|	Description														|
@@ -48,7 +48,7 @@ Manipulating Strings can be part of a final step in currating your file and path
 |	SPLIT		|	splits a **`string`** by **`\<letter or string\>`**(a character, or sub-string) and returns a sub-string at **`position`**. To splity by ","(comma) enter no **`string`**.
 | REPLACE | **`string`** is searched by the **`search`** string and is substituted with the **`replacement`**. To search for ","(comma) enter no **`string`**. |
 
-#### Logical Functions
+### Logical Functions
 Do basic comparisons and control flow.
 
 |	Name		|	Description														|
@@ -58,7 +58,7 @@ Do basic comparisons and control flow.
 |	IF			|	compares a **`tag`** with a **`condition`**(`=, len\<len\>, len=\<len\> `), then includes either the **`stringmatch`** or **`stringnomatch`** string	|
 |	IFVALUE		|	tests if **`tag`** is null, and includes **`strifvalue`** or **`strnovalue`**	|
 
-#### File System / Folder Functions
+### File System / Folder Functions
 Usefull mostly for batch jobs, as CD Ripping projects will not originate with a filename.
 
 |	Name		|	Description														|
