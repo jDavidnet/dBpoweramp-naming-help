@@ -18,38 +18,38 @@ Here is the CD Ripper Default Naming script
 ```
 ## Function Summary
 ### Compilation, Anthology, and Soundtrack Functions
-For sound files that are properly tagged with the *Compilation Tag,* it's possible to change how file title or path is generated.  Some CD ripping and sound file production methods leave this tag off or, label it incorrectly.
+For sound files that are properly tagged with the *Compilation Tag,* it's possible to change how file title or path are generated.  Some CD ripping and sound file production methods leave this tag off or, label it incorrectly.
 
 |	Name		|   Params   |	Description	    													|
 |	---			|   ---      |  --- 			    												|
-|	IFCOMP		|	**`string`**  | included if "Compilation tag" is set							|
-|	IF!COMP		|	**`string`**  |	included if "Compilation tag" is not set						|
+|	IFCOMP  |	**`string`**  | included if "Compilation tag" is set    <br>`[IFCOMP]included if CompilationTag is set[]`              |
+|	IF!COMP	|	**`string`**  |	included if "Compilation tag" is not set    <br>`[IF!COMP]included if CompilationTag is NOT set[]`     |
 
 ### Multi Disc Functions
 Multidisc sets identified can be simplified with these boolean control functions.  Similar functionality can be achived with the Logical Functions in the language.
 
 |	Name		|	Params  |   Description 														|
 |	---			|	---     |   ---     															|
-|	IFMULTI		|	**`string`**  | included if part of a multi CD / disc number is not null, > 1	|
-|	IF!MULTI	|	**`string`**  | included if not part of a multi CD / disc number is null || <=1	|
+|	IFMULTI		|	**`string`**  | included if part of a multi disc (number is not null, > 1)  <br>`[IFMULTI]included if MultiDisc set[]`            |
+|	IF!MULTI	|	**`string`**  | included if NOT part of a multi disc (number is null \|\| <=1)  <br>`[IF!MULTI]included if NOT MultiDisc set[]` |
 
 ### String Manipulation Functions
 Manipulating Strings can be part of a final step in curating your file and path names.  Within dBpoweramp there are other methods to manipulate strings before processing them here.
 
 |	Name		|	Params  |   Description														|
 |	---			|   ---     |   --- 															|
-|	UPPER		|	**`string`**  | upper-cases the string											|
-|	LOWER		|	**`string`**  | lower-cases the string											|
-|	TRIM		|	**`string`**  | trims spaces from beginning or end of string	(chars:` ` )			|
-|	RIGHT		|	**`count, string`**  | uses last x characters from a string							|
-|	GRAB		|   **`from, to, string`**  |   extracts a portion of string; if **`to`** is omitted, then string is grabbed to the end	|
-|	DEL			|   **`from, to, string`**  |   removes a portion of a string; opposite of **`GRAB`**; if **`to`** is omitted, then string is removed after **`from`**	|
-|	SETLEN		|   **`count, pre, post, string`**  |   guarantees a string length, either pads or clips the string		|
-|   MAXLENGTH   |   **`len, string`**  |   clips a string if it's ove the maximum length(**`len`**) of the **`string`**
-|	WORD		|   **`string, wordcount`**  |	trims a string to **`wordcount`** limit.  (ie. `[WORD]A Quick Brown Fox,2[]` returns the string 'A Quick')	|
-|	SPLIT		|   **`letter-or-string, string, position`**  |   splits a **`string`** by **`\<letter or string\>`**(a character, or sub-string) and returns a sub-string at **`position`**. To split by ","(comma) enter no **`string`**.
-|   REPLACE     |   **`search, replacement, string`**  |   **`string`** is searched by the **`search`** string and is substituted with the **`replacement`**. To search for ","(comma) enter no **`string`**. |
-|   GROUP       |   **`count, string`**  |   returns alpha(a-z) group hash value for a **`string`**.  group size is defined by **`count`**. (ex.**`count`** of size 4, produces the series \[a-d,e-h,...\], `[group]4,Dua Lipa[]` returns `"a-d"`) (ex. **`count`** of size 3, produces the series \[a-c,d-f,...\], `[group]3,Dua Lipa[]` returns `"d-f"` |
+|	UPPER		|	**`string`**  | upper-cases the string  <br>`[UPPER]string to upper[]`  returns `STRING TO UPPER`        |
+|	LOWER		|	**`string`**  | lower-cases the string  <br>`[LOWER]String TO Lower[]`  returns `string to lowwer`       |
+|	TRIM		|	**`string`**  | trims spaces from beginning or end of string (chars:` ` )   <br>`[TRIM] extra spaces []` returns `"extra spaces"`    |
+|	RIGHT		|	**`count, string`**  | uses last x characters from a string <br>`[RIGHT]3,Best of the 1980s,[]` returns `80s`   |
+|	GRAB		|   **`from, to, string`**  |   extracts a portion of string; if **`to`** is omitted, then string is grabbed to the end <br>`[GRAB]4,,The Beatles[]` returns `Beatles` <br>`[GRAB]1,3,The Beatles[]` returns `"The"`	|
+|	DEL			|   **`from, to, string`**  |   removes a portion of a string; if **`to`** is omitted, then string is removed after **`from`**  <br>`[DEL]3,,The Beatles[]`	returns `"The"` <br>`[DEL]2,4,abcd123456789[]` returns `a123456789` |
+|	SETLEN		|   **`count, pre, post, string`**  |   guarantees a string length, either pads or clips the string <br>`[SETLEN]4,,,abcdefg[]` returns `abcd`  <br>`[SETLEN]12,65,,abcdefg[]` returns `AAAAAabcdefg`   <br>`[SETLEN]12,,66,abcdefg[]`  returns `abcdefgBBBBB`  |
+|   MAXLENGTH   |   **`len, string`**  |   clips a string if it's ove the maximum length(**`len`**) of the **`string`** <br>`[MAXLENGTH]14,long songtitle (15 year anniversary)[]` returns `long songtitle` |
+|	WORD		|   **`string, wordcount`**  |	trims a string to **`wordcount`** limit.  <br>`[WORD]A Quick Brown Fox,2[]` returns `A Quick`	|
+|	SPLIT		|   **`letter-or-string, string, position`**  |   splits a **`string`** by **`<letter or string>`**(a character, or sub-string) and returns a sub-string at **`position`**. To split by ","(comma) enter no **`string`**. <br>`[SPLIT];,Martha Stewart;Snoop Dog,2[]` returns `Snoop Dog`   |
+|   REPLACE     |   **`search, replacement, string`**  |   **`string`** is searched by the **`search`** string and is substituted with the **`replacement`**. To search for ","(comma) enter no **`string`**. <br>`[REPLACE]feat.,;,Martha Stewart feat. Snoop Dog[]` returns `Martha Stewart ; Snoop Dog`  |
+|   GROUP       |   **`count, string`**  |   returns a hash-group value for a **`string`**.  group size is defined by **`count`**. <br>**`count`** of size 4, uses the series \[a-d,e-h,...\], `[GROUP]4,Dua Lipa[]` returns `"a-d"` <br>**`count`** of size 3, uses the series \[a-c,d-f,...\], `[GROUP]3,Dua Lipa[]` returns `"d-f"` |
 
 ### Logical Functions
 Do basic comparisons and control flow.
@@ -70,6 +70,14 @@ Usefull mostly for batch jobs, as CD Ripping projects will not originate with a 
 | TRIMLASTFOLDER  |	**`string`**  | removes last folder from path. (ex. `[TRIMLASTFOLDER]f1\f2[]` returns `f1\f2`)
 | FRONTFOLDER |	**`position`**  | returns the folder in **`position`** from the beginning of the path.   |
 | BACKFOLDER  |	**`position`**  | returns the folder in **`position`** relative from the end of the path.  |
+
+### Custom Tags
+Useful to access non-standard tags
+
+|	Name		|   Params      |	Description	    													|
+|	---			|   ---         |  --- 			    											        |
+|   tag         |   `tagname`   |  access a custom **`tagname`** <br>`[TAG]tagname[]`                   |
+|   tags        |   `key,delimiter` | `[TAGS]key,delimiter[]`                                           |
 
 ## Common Tag / Value / Variables
 
@@ -100,8 +108,8 @@ for batch processing, converting, processing audio files
 |   [track_total]   |   total number of tracks in album/disc                            |
 |   [track_total_unpad] |                                                               |
 |   [upc]           |   album UPC code                                                  |
-|   [tag]<key>[]    |   access custom or non-standard tags                              |
-|   [tags]<key>,<delimiter>[]   |   access custom or non-standard tags                  |
+|   [tag]\<key\>[]    |   access custom or non-standard tags                              |
+|   [tags]\<key\>,\<delimiter\>[]   |   access custom or non-standard tags                  |
 
 #### dBpoweramp Naming Properties
 |	Name		    |	Description														|
