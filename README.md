@@ -1,13 +1,15 @@
 # dBpoweramp-naming-help
-A guide (/w tools) to help use the Dynamic Naming Tools in dBpoweramp.
+A guide to use the Dynamic Naming Syntax and Tools in dBpoweramp.
+
+[dBpoweramp Music Converter & CD Ripper](https://www.dbpoweramp.com/) - Is a powerful audio management application and utility to batch rip, tag, and convert audio, video, and images.  It supports all of the major codecs, has a rich plugin interface, and is scriptable.  A companion app, PerfectTUNES, can help add missing Album Art covers, edit ID Tags, remove duplicate tracks, and compare your CD audio rip to an online database.
 
 ## Intro
-The dBpoweramp Dynamic Naming Code(DBPANC, pronounced DB Panic) tools provide power dynamic naming functionality to dBpoweramp.  It seems to be a cross beween a templating engine, and a functional scripting language.
+The dBpoweramp Dynamic Naming feature provides a powerful but limited scriptable naming interface.  It's language seems to be a cross between a templating engine, and a functional scripting language.  This documentation hopes to improve on the software's documentation and enable more users to create the audio ontologies they desire.
 
 #### Language Caveats
 It has limited control flow, and some ability to nest statements; but, it does not seem to be a complete programing language.  The operators, functions, or control statements are in a pre-fix notation form -- similar to LISP.
 
-Because DBPANC lacks the ability to create functions, store values for reuse or leverage modular code; code can get pretty complex and difficult to maintain.  I am writting this guide to correct, update and simplify the production of these scripts.
+Because dBpoweramp Dynamic Naming feature lacks the ability to create functions, store values for reuse or leverage modular code; code can get pretty complex and difficult to maintain.  I am writing this guide to correct, update and simplify the production of these scripts.
 
 #### Example
 Here is the CD Ripper Default Naming script
@@ -157,7 +159,35 @@ for batch processing video files
 |   [sample size]   |   |
 |   [audio bitrate] |   |
 
+## File System Requirements / Limitations
 
+An Example Set of Limits
+ * 255 total path limit
+ * example-1 for the path \\artist\\album\\artist - album - 01-01 - track title.ext
+   * \\50\\50\\140 = 240
+   * 50 chars for artist directory name
+   * 50 chars for album directory name
+   * 140 chars for file name
+ * example-2 for the path \\artist\\album\\01-01 - track title.ext
+   * \\80\\80\\80 = 240
+
+### Windows
+ * 255 characters, modern limit
+ * [Microsoft Win32 Naming Files, Paths, and Namespaces](https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file)
+ * The following reserved characters:
+   *  < (less than)
+   *  \> (greater than)
+   *  : (colon)
+   *  " (double quote)
+   *  / (forward slash)
+   *  \\ (backslash)
+   * | (vertical bar or pipe)
+   * ? (question mark)
+   * \* (asterisk)
+
+### MacOS
+ * 255 characters, OSX modern limit
+### Linux
 
 ## Reference Links
  * [illustrate's dBpoweramp dMC Naming doc](https://www.dbpoweramp.com/Help/dMC/Naming.htm)
