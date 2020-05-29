@@ -34,13 +34,13 @@ Multidisc sets identified can be simplified with these boolean control functions
 |	IF!MULTI	|	**`string`**  | included if not part of a multi CD / disc number is null || <=1	|
 
 ### String Manipulation Functions
-Manipulating Strings can be part of a final step in currating your file and path names.  Within dBpoweramp there are other methods to manipulate strings before processing them here.
+Manipulating Strings can be part of a final step in curating your file and path names.  Within dBpoweramp there are other methods to manipulate strings before processing them here.
 
 |	Name		|	Params  |   Description														|
 |	---			|   ---     |   --- 															|
-|	UPPER		|	**`string`**  | uppercases the string											|
-|	LOWER		|	**`string`**  | lowercases the string											|
-|	TRIM		|	**`string`**  | trims spaces from begining or end of string	(chars:` ` )			|
+|	UPPER		|	**`string`**  | upper-cases the string											|
+|	LOWER		|	**`string`**  | lower-cases the string											|
+|	TRIM		|	**`string`**  | trims spaces from beginning or end of string	(chars:` ` )			|
 |	RIGHT		|	**`count, string`**  | uses last x characters from a string							|
 |	GRAB		|   **`from, to, string`**  |   extracts a portion of string; if **`to`** is omitted, then string is grabbed to the end	|
 |	DEL			|   **`from, to, string`**  |   removes a portion of a string; opposite of **`GRAB`**; if **`to`** is omitted, then string is removed after **`from`**	|
@@ -68,8 +68,8 @@ Usefull mostly for batch jobs, as CD Ripping projects will not originate with a 
 |	---			|   ---      |  --- 			    												|
 | TRIMFIRSTFOLDER |	**`string`**  | removes first folder form the path.  (ex. `[TRIMFIRSTFOLDER]f1\f2\f3[]` returns `f2\f3`) |
 | TRIMLASTFOLDER  |	**`string`**  | removes last folder from path. (ex. `[TRIMLASTFOLDER]f1\f2[]` returns `f1\f2`)
-| FRONTFOLDER |	**`position`**  | returns the folder in **`position`** from the begining of the path.   |
-| BACKFOLDER  |	**`position`**  | returns the folder in **`position`** reletive from the end of the path.  |
+| FRONTFOLDER |	**`position`**  | returns the folder in **`position`** from the beginning of the path.   |
+| BACKFOLDER  |	**`position`**  | returns the folder in **`position`** relative from the end of the path.  |
 
 ## Common Tag / Value / Variables
 
