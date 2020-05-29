@@ -18,56 +18,56 @@ Here is the CD Ripper Default Naming script
 ### Compilation, Anthology, and Soundtrack Functions
 For sound files that are properly tagged with the *Compilation Tag,* it's possible to change how file title or path is generated.  Some CD ripping and sound file production methods leave this tag off or, label it incorrectly.
 
-|	Name		|	Description														|
-|	---			|	--- 															|
-|	IFCOMP		|	included if "Compilation tag" is set							|
-|	IF!COMP		|	included if "Compilation tag" is not set						|
+|	Name		|   Params   |	Description	    													|
+|	---			|   ---      |  --- 			    												|
+|	IFCOMP		|	**`string`**  | included if "Compilation tag" is set							|
+|	IF!COMP		|	**`string`**  |	included if "Compilation tag" is not set						|
 
 ### Multi Disc Functions
 Multidisc sets identified can be simplified with these boolean control functions.  Similar functionality can be achived with the Logical Functions in the language.
 
-|	Name		|	Description														|
-|	---			|	--- 															|
-|	IFMULTI		|	included if part of a multi CD / disc number is not null, > 1	|
-|	IF!MULTI	|	included if not part of a multi CD / disc number is null || <=1	|
+|	Name		|	Params  |   Description 														|
+|	---			|	---     |   ---     															|
+|	IFMULTI		|	**`string`**  | included if part of a multi CD / disc number is not null, > 1	|
+|	IF!MULTI	|	**`string`**  | included if not part of a multi CD / disc number is null || <=1	|
 
 ### String Manipulation Functions
 Manipulating Strings can be part of a final step in currating your file and path names.  Within dBpoweramp there are other methods to manipulate strings before processing them here.
 
-|	Name		|	Description														|
-|	---			|	--- 															|
-|	UPPER		|	uppercases the string											|
-|	LOWER		|	lowercases the string											|
-|	RIGHT		|	uses last x characters from a string							|
-|	GRAB		|	extracts a portion of string; if **`to`** is omitted, then string is grabbed to the end	|
-|	TRIM		|	trims spaces from begining or end of string	(chars:` ` )			|
-|	DEL			|	removes a portion of a string; opposite of **`GRAB`**; if **`to`** is omitted, then string is removed after **`from`**	|
-|	SETLEN		|	guarantees a string length, either pads or clips the string		|
-| MAXLENGTH | clips a string if it's ove the maximum length(**`len`**) of the **`string`**
-|	WORD		|	trims a string to **`wordcount`** limit.  (ie. `[WORD]A Quick Brown Fox,2[]` returns the string 'A Quick')	|
-|	SPLIT		|	splits a **`string`** by **`\<letter or string\>`**(a character, or sub-string) and returns a sub-string at **`position`**. To split by ","(comma) enter no **`string`**.
-|   REPLACE     | **`string`** is searched by the **`search`** string and is substituted with the **`replacement`**. To search for ","(comma) enter no **`string`**. |
-|   GROUP       |   returns alpha(a-z) group hash value for a **`string`**.  group size is defined by **`count`**. (ex.**`count`** of size 4, produces the series \[a-d,e-h,...\], `[group]4,Dua Lipa[]` returns `"a-d"`) (ex. **`count`** of size 3, produces the series \[a-c,d-f,...\], `[group]3,Dua Lipa[]` returns `"d-f"` |
+|	Name		|	Params  |   Description														|
+|	---			|   ---     |   --- 															|
+|	UPPER		|	**`string`**  | uppercases the string											|
+|	LOWER		|	**`string`**  | lowercases the string											|
+|	TRIM		|	**`string`**  | trims spaces from begining or end of string	(chars:` ` )			|
+|	RIGHT		|	**`count, string`**  | uses last x characters from a string							|
+|	GRAB		|   **`from, to, string`**  |   extracts a portion of string; if **`to`** is omitted, then string is grabbed to the end	|
+|	DEL			|   **`from, to, string`**  |   removes a portion of a string; opposite of **`GRAB`**; if **`to`** is omitted, then string is removed after **`from`**	|
+|	SETLEN		|   **`count, pre, post, string`**  |   guarantees a string length, either pads or clips the string		|
+|   MAXLENGTH   |   **`len, string`**  |   clips a string if it's ove the maximum length(**`len`**) of the **`string`**
+|	WORD		|   **`string, wordcount`**  |	trims a string to **`wordcount`** limit.  (ie. `[WORD]A Quick Brown Fox,2[]` returns the string 'A Quick')	|
+|	SPLIT		|   **`letter-or-string, string, position`**  |   splits a **`string`** by **`\<letter or string\>`**(a character, or sub-string) and returns a sub-string at **`position`**. To split by ","(comma) enter no **`string`**.
+|   REPLACE     |   **`search, replacement, string`**  |   **`string`** is searched by the **`search`** string and is substituted with the **`replacement`**. To search for ","(comma) enter no **`string`**. |
+|   GROUP       |   **`count, string`**  |   returns alpha(a-z) group hash value for a **`string`**.  group size is defined by **`count`**. (ex.**`count`** of size 4, produces the series \[a-d,e-h,...\], `[group]4,Dua Lipa[]` returns `"a-d"`) (ex. **`count`** of size 3, produces the series \[a-c,d-f,...\], `[group]3,Dua Lipa[]` returns `"d-f"` |
 
 ### Logical Functions
 Do basic comparisons and control flow.
 
-|	Name		|	Description														|
-|	---			|	--- 															|
-|	IFEQUALS	|	if **`tag`** value == **`equals`** value, then include string		|
-|	IF!EQUALS	|	if **`tag`** value != **`equals`** value, then include string		|
-|	IF			|	compares a **`tag`** with a **`condition`**(`=, len\<len\>, len=\<len\> `), then includes either the **`stringmatch`** or **`stringnomatch`** string	|
-|	IFVALUE		|	tests if **`tag`** is null, and includes **`strifvalue`** or **`strnovalue`**	|
+|	Name		|	Params  |   Description														|
+|	---			|	---     | 	---     														|
+|	IFEQUALS	|   **`tag, equals, string`**  |    if **`tag`** value == **`equals`** value, then include string		|
+|	IF!EQUALS	|   **`tag, equals, string`**  |	if **`tag`** value != **`equals`** value, then include string		|
+|	IF			|   **`tag, condition, match, stringmatch, stringnomatch`**  |compares a **`tag`** with a **`condition`**(`=, len\<len\>, len=\<len\> `), then includes either the **`stringmatch`** or **`stringnomatch`** string	|
+|	IFVALUE		|   **`tag, strifvalue, strnovalue`**  |    tests if **`tag`** is null, and includes **`strifvalue`** or **`strnovalue`**	|
 
 ### File System / Folder Functions
 Usefull mostly for batch jobs, as CD Ripping projects will not originate with a filename.
 
-|	Name		|	Description														|
-|	---			|	--- 															|
-| TRIMFIRSTFOLDER | removes first folder form the path.  (ex. `[TRIMFIRSTFOLDER]f1\f2\f3[]` returns `f2\f3`) |
-| TRIMLASTFOLDER  | removes last folder from path. (ex. `[TRIMLASTFOLDER]f1\f2[]` returns `f1\f2`)
-| FRONTFOLDER | returns the folder in **`position`** from the begining of the path.   |
-| BACKFOLDER  | returns the folder in **`position`** reletive from the end of the path.  |
+|	Name		|   Params   |	Description	    													|
+|	---			|   ---      |  --- 			    												|
+| TRIMFIRSTFOLDER |	**`string`**  | removes first folder form the path.  (ex. `[TRIMFIRSTFOLDER]f1\f2\f3[]` returns `f2\f3`) |
+| TRIMLASTFOLDER  |	**`string`**  | removes last folder from path. (ex. `[TRIMLASTFOLDER]f1\f2[]` returns `f1\f2`)
+| FRONTFOLDER |	**`position`**  | returns the folder in **`position`** from the begining of the path.   |
+| BACKFOLDER  |	**`position`**  | returns the folder in **`position`** reletive from the end of the path.  |
 
 ## Common Tag / Value / Variables
 
@@ -131,7 +131,7 @@ for batch processing, converting, processing audio files
 |   [unique]        |   track unique number ( from where? )                             |
 |   [cddb_id]       |   unique disc ID from CDDB                                        |
 
-### dBpoweramp Video Converter (dMV) values
+#### dBpoweramp Video Converter (dMV) values
 for batch processing video files
 
 |	Name		    |	Description														|
